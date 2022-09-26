@@ -20,7 +20,7 @@ spec:
         image: lukondefmwila/express-test:1.0.2
         resources:
           limits:
-            memory: "128Mi"
-            cpu: "500m"
+            memory: "32Mi"
+            cpu: "64m"
         ports:
         - containerPort: 8080
