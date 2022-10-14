@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: argocd-repo-server
+  namespace: my-nginx
 spec:
   template:
     spec:
@@ -41,11 +42,11 @@ spec:
           - name: AVP_TYPE
             value: vault
           - name: VAULT_ADDR
-            value: http://localhost:8200
+            value: http://ac62692b24af645439a0c80ede01ce67-556141279.us-east-1.elb.amazonaws.com:8200/
           - name: AVP_AUTH_TYPE
             value: token
           - name: VAULT_TOKEN
-            value: hvs.qqT9W7TezZFBIcCZBJHorus4
+            value: root
 
       # Optional. Useful if you want to either:
       # - Pass the argocd-vault-plugin configuration via a pre-existing Secret
