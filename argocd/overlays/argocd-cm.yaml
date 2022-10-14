@@ -12,7 +12,7 @@ data:
         command: [argocd-vault-plugin]
         args: 
           - generate
-          - ./manifests/all.yaml
+          - ./
 
     - name: apisero-argocd-vault-helm
       init:
@@ -26,4 +26,4 @@ data:
         args: 
           - |
             helm template $ARGOCD_APP_NAME ${helm_args} -n $ARGOCD_APP_NAMESPACE . |\
-            argocd-vault-plugin generate ./manifests/all.yaml
+            argocd-vault-plugin generate -
