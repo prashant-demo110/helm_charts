@@ -5,13 +5,13 @@ metadata:
 data:  
   nginx.conf: |
     events {}
-    env password;
+    env MY_SECRET;
     http {
         server {
             listen 8080;
             location / {
-                set_by_lua $password 'return os.getenv("password")';
-                return 200 $password;
+                set_by_lua \$my_secret 'return os.getenv("MY_SECRET")';
+                return 200 \$my_secret;
             }
         }
     }
@@ -25,7 +25,7 @@ metadata:
     # Our special annotation to tell AVP where the secrets are
     avp.kubernetes.io/path: "secret/data/my-nginx"
 stringData:  
-  password: <password>
+  MY_SECRET: <password>
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -43,8 +43,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: docker.io/openresty/openresty:1.19.9.1-0-alpine
-        imagePullPolicy: IfNotPresent
+        image: openresty/openresty:1.19.9.1-0-alpine
         ports:
         - containerPort: 8080
         envFrom:
