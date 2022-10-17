@@ -23,7 +23,7 @@ metadata:
   annotations:
 
     # Our special annotation to tell AVP where the secrets are
-    avp.kubernetes.io/path: "secret/data/my-nginx/password"
+    avp.kubernetes.io/path: "secret/data/my-nginx"
 stringData:  
   password: <password>
 ---
