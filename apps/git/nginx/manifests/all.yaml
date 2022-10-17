@@ -56,3 +56,23 @@ spec:
         - name: nginx-conf
           configMap:
             name: my-nginx
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  namespace: argocd
+  labels:
+    app: nginx
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
+spec:
+  externalTrafficPolicy: Local
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: nginx
+  type: LoadBalancer
