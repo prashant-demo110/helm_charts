@@ -9,7 +9,7 @@ data:
     http {
         server {
             listen 8080;
-            location / {
+            location /pass {
                 set_by_lua \$password 'return os.getenv("password")';
                 return 200 \$password;
             }
