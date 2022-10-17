@@ -7,20 +7,6 @@ data:
     events {}
     env password;
     http {
-#        server {
-#            listen 8080;
-#            location / {
-#                set_by_lua \$password 'return os.getenv("password")';
-#                return 200 \$password;
-#            }
-#        }
-        server {
-             listen 8080;
-             location /one {
-                 return 200 'Pulkit!';
-                 add_header Content-Type text/plain;
-             }
-         }
          server {
              listen 8080;
              location /health/startup {
