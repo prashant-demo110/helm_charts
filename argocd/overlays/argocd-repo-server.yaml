@@ -40,7 +40,7 @@ spec:
           - name: AVP_TYPE
             value: vault
           - name: VAULT_ADDR
-            value: http://ac62692b24af645439a0c80ede01ce67-556141279.us-east-1.elb.amazonaws.com/:8200
+            value: http://ac62692b24af645439a0c80ede01ce67-556141279.us-east-1.elb.amazonaws.com:8200
           - name: AVP_AUTH_TYPE
             value: token
           - name: VAULT_TOKEN
