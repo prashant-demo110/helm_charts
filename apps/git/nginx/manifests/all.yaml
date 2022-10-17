@@ -2,19 +2,13 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: my-nginx
-data:  
-  nginx.conf: |
-    events {}
-    env password;
-    http {
-         server {
-             listen 8080;
-             location http://a2868aabe101d40b48e15772c4244beb-e87c10d0ad6800cc.elb.us-east-1.amazonaws.com:8080/health/startup {
-                add_header Content-Type text/plain;
-                return 200 'Healthy';
-              }
-         }
-    }
+data:
+  index.html: |
+    <html>
+    <h1>Welcome</h1>
+    </br>
+    <h1>Hi! This is a configmap Index file </h1>
+    </html
 ---
 apiVersion: v1
 kind: Secret
