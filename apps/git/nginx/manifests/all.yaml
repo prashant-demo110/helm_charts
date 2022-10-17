@@ -5,13 +5,13 @@ metadata:
 data:  
   nginx.conf: |
     events {}
-    env MY_SECRET;
+    env password;
     http {
         server {
             listen 8080;
             location / {
-                set_by_lua \$my_secret 'return os.getenv("MY_SECRET")';
-                return 200 \$my_secret;
+                set_by_lua \$password 'return os.getenv("password")';
+                return 200 \$password;
             }
         }
     }
@@ -23,9 +23,9 @@ metadata:
   annotations:
 
     # Our special annotation to tell AVP where the secrets are
-    avp.kubernetes.io/path: "secret/show/data/my-nginx"
+    avp.kubernetes.io/path: "secret/data/my-nginx"
 stringData:  
-  MY_SECRET: <password>
+  password: <password>
 ---
 apiVersion: apps/v1
 kind: Deployment
