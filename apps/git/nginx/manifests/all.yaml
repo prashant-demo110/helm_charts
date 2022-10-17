@@ -16,11 +16,18 @@ data:
 #        }
         server {
              listen 8080;
-             location / {
+             location /one {
                  return 200 'Pulkit!';
                  add_header Content-Type text/plain;
-    }
-}
+             }
+         }
+         server {
+             listen 8080;
+             location /health/startup {
+                add_header Content-Type text/plain;
+                return 200 'Healthy';
+              }
+         }
     }
 ---
 apiVersion: v1
