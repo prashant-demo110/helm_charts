@@ -7,21 +7,19 @@ data:
   users.anonymous.enabled: 'false'
 
   configManagementPlugins: |
-    - name: argocd-vault
+    - name: apisero-argocd-vault
       generate:
         command: [argocd-vault-plugin]
         args: 
           - generate
           - ./ 
 
-    - name: argocd-vault-helm
+    - name: apisero-argocd-vault-helm
       init:
         command: [sh, -c]
         args:
           - |
-            helm repo add bitnami https://charts.bitnami.com/bitnami && 
-            helm dependency build
-
+            helm repo add bitnami https://charts.bitnami.com/bitnami
       generate:
         command: [sh, -c]
         args: 
