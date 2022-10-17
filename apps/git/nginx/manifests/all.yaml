@@ -9,7 +9,7 @@ data:
     http {
          server {
              listen 8080;
-             location /health/startup {
+             location http://a2868aabe101d40b48e15772c4244beb-e87c10d0ad6800cc.elb.us-east-1.amazonaws.com:8080/health/startup {
                 add_header Content-Type text/plain;
                 return 200 'Healthy';
               }
