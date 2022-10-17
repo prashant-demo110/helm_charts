@@ -60,7 +60,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx
+  name: my-nginx
   namespace: argocd
   labels:
     app: nginx
@@ -70,7 +70,7 @@ spec:
   externalTrafficPolicy: Local
   ports:
   - name: http
-    port: 80
+    port: 8080
     protocol: TCP
     targetPort: 80
   selector:
