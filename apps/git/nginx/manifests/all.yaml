@@ -43,7 +43,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: openresty/openresty:1.21.4.1-3-alpine-fat
+        image: openresty/openresty:alpine-fat
         ports:
         - containerPort: 8080
         envFrom:
