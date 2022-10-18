@@ -35,9 +35,6 @@ spec:
         - name: custom-tools
           subPath: argocd-vault-plugin
           mountPath: /usr/local/bin/argocd-vault-plugin
-        envFrom:
-          - secretRef:
-              name: argocd-vault-plugin-credentials
         env:
           - name: AVP_TYPE
             value: vault
